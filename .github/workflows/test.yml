@@ -96,7 +96,7 @@ jobs:
     steps:
       # https://github.com/actions/checkout
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
+        run: pwd
 
       - name: Download built folders ⏬
         run: pwd
@@ -121,16 +121,15 @@ jobs:
 
 
       - name: Set Cypress version 🎁
-        id: cypress
         run: echo "hello world"
 
 
       # https://github.com/marketplace/actions/github-pages-action
-      - name: Deploy 
+      - name: Deploy
+        run: pwd
 
       - name: Export page redirects ↗️
         run: echo "hello world"
-
 
       # deploy the redirect pages that point every top level
       # HTML page the Cypress Test Runner might load to the corresponding
