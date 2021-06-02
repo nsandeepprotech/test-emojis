@@ -32,7 +32,7 @@ jobs:
         run: echo "hello world"
 
       - name: Save built folders 🆙
-        uses: actions/upload-artifact@v2
+        run: echo "hello "
 
   test-link:
     runs-on: ubuntu-20.04
