@@ -74,7 +74,7 @@ jobs:
         run: pwd
        
       - name: See any changed files 👀
-        run: git status
+        run: pwd
 
       # if there are any updated PNG images, commit and push them
       - name: Commit any changed images 💾
