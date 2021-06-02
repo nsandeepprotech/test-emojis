@@ -103,7 +103,7 @@ jobs:
         run: pwd
 
       - name: Test built site 🧪
-        uses: cypress-io/github-action@v2
+        run: pwd
 
   deploy:
     runs-on: ubuntu-20.04
@@ -137,4 +137,4 @@ jobs:
       # HTML page the Cypress Test Runner might load to the corresponding
       # page under the latest version
       - name: Deploy redirects 🚀
-        uses: peaceiris/actions-gh-pages@v3
+        run: pwd
