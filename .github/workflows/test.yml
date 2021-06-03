@@ -13,6 +13,8 @@ jobs:
   terraform-validate:
     runs-on: ubuntu-20.04
     needs: terraform-lint
+    strategy:
+      fail-fast: false
     steps:
       - name: Checkout 🛎️
         run: pwd
@@ -26,6 +28,8 @@ jobs:
   terraform-test:
     runs-on: ubuntu-20.04
     needs: terraform-lint
+    strategy:
+      fail-fast: false    
     steps:
       # https://github.com/actions/checkout
       - name: Checkout 🛎️
@@ -34,6 +38,8 @@ jobs:
   terraform-compliance:
     runs-on: ubuntu-20.04
     needs: terraform-lint
+    strategy:
+      fail-fast: false    
     steps:
       - name: Checkout 🛎️
         run: pwd
@@ -41,6 +47,8 @@ jobs:
   terraform-deploy:
     runs-on: ubuntu-20.04
     needs: [terraform-lint,terraform-validate,terraform-scan,terraform-test,terraform-compliance]
+    strategy:
+      fail-fast: false   
     # only deploy from the master branch
     if: github.ref == 'refs/heads/master'
     steps:
@@ -53,6 +61,8 @@ jobs:
   terraform-destroy:
     runs-on: ubuntu-20.04
     needs: [terraform-lint,terraform-validate,terraform-scan,terraform-test,terraform-compliance]
+    strategy:
+      fail-fast: false   
     # only deploy from the master branch
     if: github.ref == 'refs/heads/master'
     steps:
