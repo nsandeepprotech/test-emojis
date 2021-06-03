@@ -82,7 +82,7 @@ jobs:
 
   terraform-destroy:
     runs-on: ubuntu-20.04
-    needs: [terraform-lint,terraform-validate,terraform-scan,terraform-test,terraform-compliance]
+    needs: [terraform-lint,terraform-validate]
     strategy:
       fail-fast: false
       matrix:
