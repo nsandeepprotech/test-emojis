@@ -50,3 +50,14 @@ jobs:
       - name: Download built folders ⏬
         run: pwd
 
+  terraform-destroy:
+    runs-on: ubuntu-20.04
+    needs: [terraform-lint,terraform-validate,terraform-scan,terraform-test,terraform-compliance]
+    # only deploy from the master branch
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Download built folders ⏬
+        run: pwd
