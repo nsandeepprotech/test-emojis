@@ -15,6 +15,9 @@ jobs:
     needs: terraform-lint
     strategy:
       fail-fast: false
+      matrix:
+        # run 4 copies of the current job in parallel
+        containers: [1]
     steps:
       - name: Checkout 🛎️
         run: pwd
@@ -29,7 +32,10 @@ jobs:
     runs-on: ubuntu-20.04
     needs: terraform-lint
     strategy:
-      fail-fast: false    
+      fail-fast: false
+      matrix:
+        # run 4 copies of the current job in parallel
+        containers: [1]     
     steps:
       # https://github.com/actions/checkout
       - name: Checkout 🛎️
@@ -39,7 +45,10 @@ jobs:
     runs-on: ubuntu-20.04
     needs: terraform-lint
     strategy:
-      fail-fast: false    
+      fail-fast: false
+      matrix:
+        # run 4 copies of the current job in parallel
+        containers: [1]     
     steps:
       - name: Checkout 🛎️
         run: pwd
@@ -48,7 +57,10 @@ jobs:
     runs-on: ubuntu-20.04
     needs: [terraform-lint,terraform-validate,terraform-scan,terraform-test,terraform-compliance]
     strategy:
-      fail-fast: false   
+      fail-fast: false
+      matrix:
+        # run 4 copies of the current job in parallel
+        containers: [1]    
     # only deploy from the master branch
     if: github.ref == 'refs/heads/master'
     steps:
@@ -62,7 +74,10 @@ jobs:
     runs-on: ubuntu-20.04
     needs: [terraform-lint,terraform-validate,terraform-scan,terraform-test,terraform-compliance]
     strategy:
-      fail-fast: false   
+      fail-fast: false
+      matrix:
+        # run 4 copies of the current job in parallel
+        containers: [1]     
     # only deploy from the master branch
     if: github.ref == 'refs/heads/master'
     steps:
