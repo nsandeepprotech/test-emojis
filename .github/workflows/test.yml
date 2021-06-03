@@ -10,6 +10,13 @@ jobs:
 
       - name: perform terrraform lint 🖨
         run: echo "hello world"
+  terraform-validate:
+    runs-on: ubuntu-20.04
+    needs: terraform-lint
+    steps:
+      - name: Checkout 🛎️
+        run: pwd
+        
   terraform-scan:
     runs-on: ubuntu-20.04
     needs: terraform-lint
@@ -33,7 +40,7 @@ jobs:
 
   terraform-deploy:
     runs-on: ubuntu-20.04
-    needs: [terraform-lint, terraform-scan,  terraform-test, terraform-compliance]
+    needs: [terraform-lint,terraform-validate,terraform-scan,terraform-test,terraform-compliance]
     # only deploy from the master branch
     if: github.ref == 'refs/heads/master'
     steps:
