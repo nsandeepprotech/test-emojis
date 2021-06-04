@@ -40,7 +40,7 @@ jobs:
         run: pwd
   terraform-test:
     runs-on: ubuntu-20.04
-    needs: [terraform-lint,terraform-validate,terraform-scan]
+    needs: [terraform-scan]
     strategy:
       fail-fast: false
      # matrix:
@@ -65,7 +65,7 @@ jobs:
 
   terraform-deploy:
     runs-on: ubuntu-20.04
-    needs: [terraform-lint,terraform-validate,terraform-scan,terraform-test,terraform-compliance]
+    needs: [terraform-test,terraform-compliance]
     strategy:
       fail-fast: false
      # matrix:
