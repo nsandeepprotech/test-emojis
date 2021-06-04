@@ -6,9 +6,9 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
-      matrix:
+     # matrix:
         # run 4 copies of the current job in parallel
-        containers: [0]       
+       # containers: [0]       
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
@@ -20,9 +20,9 @@ jobs:
     needs: terraform-lint
     strategy:
       fail-fast: false
-      matrix:
+     # matrix:
         # run 4 copies of the current job in parallel
-        containers: [0]   
+       # containers: [0]       
     steps:
       - name: Checkout 🛎️
         run: pwd
@@ -32,9 +32,9 @@ jobs:
     needs: [terraform-lint,terraform-validate]
     strategy:
       fail-fast: false
-      matrix:
+     # matrix:
         # run 4 copies of the current job in parallel
-        containers: [0]       
+       # containers: [0]         
     steps:
       - name: Checkout 🛎️
         run: pwd
@@ -43,9 +43,9 @@ jobs:
     needs: [terraform-lint,terraform-validate,terraform-scan]
     strategy:
       fail-fast: false
-      matrix:
+     # matrix:
         # run 4 copies of the current job in parallel
-        containers: [0]     
+       # containers: [0]          
     steps:
       # https://github.com/actions/checkout
       - name: Checkout 🛎️
@@ -56,9 +56,9 @@ jobs:
     needs: terraform-lint
     strategy:
       fail-fast: false
-      matrix:
+     # matrix:
         # run 4 copies of the current job in parallel
-        containers: [0]    
+       # containers: [0]      
     steps:
       - name: Checkout 🛎️
         run: pwd
@@ -68,9 +68,9 @@ jobs:
     needs: [terraform-lint,terraform-validate,terraform-scan,terraform-test,terraform-compliance]
     strategy:
       fail-fast: false
-      matrix:
+     # matrix:
         # run 4 copies of the current job in parallel
-        containers: [0]    
+       # containers: [0]         
     # only deploy from the master branch
     if: github.ref == 'refs/heads/main'
     steps:
@@ -85,9 +85,9 @@ jobs:
     needs: [terraform-lint,terraform-validate]
     strategy:
       fail-fast: false
-      matrix:
+     # matrix:
         # run 4 copies of the current job in parallel
-        containers: [0]     
+       # containers: [0]          
     # only deploy from the master branch
     if: github.ref == 'refs/heads/master'
     steps:
