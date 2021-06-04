@@ -29,7 +29,7 @@ jobs:
         
   terraform-scan:
     runs-on: ubuntu-20.04
-    needs: [terraform-lint,terraform-validate]
+    needs: [terraform-validate]
     strategy:
       fail-fast: false
      # matrix:
