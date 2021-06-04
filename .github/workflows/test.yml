@@ -53,7 +53,7 @@ jobs:
 
   terraform-compliance:
     runs-on: ubuntu-20.04
-    needs: terraform-lint
+    needs: terraform-test
     strategy:
       fail-fast: false
      # matrix:
@@ -82,7 +82,7 @@ jobs:
 
   terraform-destroy:
     runs-on: ubuntu-20.04
-    needs: [terraform-lint,terraform-validate]
+    needs: [terraform-test,terraform-compliance]
     strategy:
       fail-fast: false
      # matrix:
